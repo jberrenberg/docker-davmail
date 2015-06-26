@@ -16,7 +16,7 @@ RUN mkdir /usr/local/davmail && \
   mkdir /var/log/davmail && \
   chown davmail:davmail /var/log/davmail -R
 
-COPY docker.sh /usr/local/davmail/
+COPY davmail.sh /usr/local/davmail/
 
 VOLUME        /etc/davmail
 
