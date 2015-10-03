@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER jberrenberg v0.2
+MAINTAINER jberrenberg v0.3
 
 RUN DEBIAN_FRONTEND=noninteractive ;\
   apt-get update && apt-get install -y \
@@ -16,7 +16,7 @@ RUN mkdir /usr/local/davmail && \
   mkdir /var/log/davmail && \
   chown davmail:davmail /var/log/davmail -R
 
-COPY davmail.sh /usr/local/davmail/
+COPY davmail.sh /usr/local/bin/
 
 VOLUME        /etc/davmail
 
@@ -28,4 +28,4 @@ EXPOSE        1025
 WORKDIR       /usr/local/davmail
 
 USER davmail
-ENTRYPOINT    ["/usr/local/davmail/davmail.sh"]
+ENTRYPOINT    ["/usr/local/bin/davmail.sh"]

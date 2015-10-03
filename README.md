@@ -17,8 +17,8 @@ docker run -v $(DAVMAIL_CONF):/etc/davmail/davmai.properties -p 1080:1080 jberre
 
 The following ports are exposed by the container:
 
-* caldavPort: 1080
-* imapPort: 1143
-* ldapPort: 1389
-* popPort: 1110
-* smtpPort: 1025
+* caldav: 1080
+* imap: 1143
+* ldap: 1389
+* pop: 1110
+* smtp: 1025
