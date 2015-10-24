@@ -2,6 +2,8 @@
 
 [Davmail Gateway](http://davmail.sourceforge.net/) in a Docker container
 
+Davmail Version: 4.6.2
+
 ## Quickstart
 
 You need a `davmail.properties` configuration. If you don't know how click [here](http://davmail.sourceforge.net/serversetup.html).
@@ -10,7 +12,7 @@ Run the container:
 
 ``` bash
 DAVMAIL_CONF=<absolute/path/to/davmail.properties>
-docker run -v $(DAVMAIL_CONF):/etc/davmail/davmai.properties -p 1080:1080 jberrenberg/davmail
+docker run -v ${DAVMAIL_CONF}:/etc/davmail/davmail.properties -p 1080:1080 jberrenberg/davmail
 ```
 
 ## Exposed ports
