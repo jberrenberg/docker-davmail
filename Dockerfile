@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER jberrenberg v0.4
+MAINTAINER jberrenberg v0.5
 
 RUN DEBIAN_FRONTEND=noninteractive ;\
   apt-get update && apt-get install -y --no-install-recommends \
@@ -12,7 +12,7 @@ RUN groupadd -r davmail && \
   useradd -r -g davmail davmail
 
 RUN mkdir /usr/local/davmail && \
-  wget -qO - http://downloads.sourceforge.net/project/davmail/davmail/4.7.1/davmail-linux-x86_64-4.7.1-2416.tgz | tar -C /usr/local/davmail --strip-components=1 -xvz && \
+  wget -qO - http://downloads.sourceforge.net/project/davmail/davmail/4.7.2/davmail-linux-x86_64-4.7.2-2427.tgz | tar -C /usr/local/davmail --strip-components=1 -xvz && \
   mkdir /var/log/davmail && \
   chown davmail:davmail /var/log/davmail -R
 
