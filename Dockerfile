@@ -1,22 +1,14 @@
-FROM debian:jessie
-MAINTAINER jberrenberg v0.5
+FROM alpine:latest
 
-RUN DEBIAN_FRONTEND=noninteractive ;\
-  apt-get update && apt-get install -y --no-install-recommends \
-  default-jre \
-  wget && \
-  apt-get clean && \
-  rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/*
+MAINTAINER jberrenberg v0.6
 
-RUN groupadd -r davmail && \
-  useradd -r -g davmail davmail
-
-RUN mkdir /usr/local/davmail && \
-  wget -qO - http://downloads.sourceforge.net/project/davmail/davmail/4.7.2/davmail-linux-x86_64-4.7.2-2427.tgz | tar -C /usr/local/davmail --strip-components=1 -xvz && \
+RUN apk --update --no-cache add openjdk7-jre tar && \
+  adduser davmail -D && \
+  mkdir /usr/local/davmail && \
+  wget -qO - http://downloads.sourceforge.net/project/davmail/davmail/4.7.2/davmail-linux-x86_64-4.7.2-2427.tgz | tar -C /usr/local/davmail --strip-components=1 -xz && \
   mkdir /var/log/davmail && \
-  chown davmail:davmail /var/log/davmail -R
-
-COPY davmail.sh /usr/local/bin/
+  chown davmail:davmail /var/log/davmail -R && \
+  apk del tar
 
 VOLUME        /etc/davmail
 
@@ -28,4 +20,5 @@ EXPOSE        1025
 WORKDIR       /usr/local/davmail
 
 USER davmail
-ENTRYPOINT    ["/usr/local/bin/davmail.sh"]
+
+CMD ["/usr/local/davmail/davmail.sh", "/etc/davmail/davmail.properties"]
