@@ -1,11 +1,12 @@
 FROM alpine:latest
 
-MAINTAINER jberrenberg v0.7
+MAINTAINER jberrenberg v0.8
 
-RUN apk --update --no-cache add openjdk7-jre tar && \
+RUN apk --update --no-cache add ca-certificates openjdk7-jre tar wget && \
   adduser davmail -D && \
+  update-ca-certificates && \
   mkdir /usr/local/davmail && \
-  wget -qO - http://downloads.sourceforge.net/project/davmail/davmail/4.7.2/davmail-linux-x86_64-4.7.2-2427.tgz | tar -C /usr/local/davmail --strip-components=1 -xz && \
+  wget -qO - http://downloads.sourceforge.net/project/davmail/davmail/4.7.3/davmail-linux-x86_64-4.7.3-2438.tgz | tar -C /usr/local/davmail --strip-components=1 -xz && \
   mkdir /var/log/davmail && \
   chown davmail:davmail /var/log/davmail -R && \
   apk del tar
