@@ -1,11 +1,11 @@
 FROM openjdk:8-jre-alpine
 
-MAINTAINER jberrenberg v4.8.1
+MAINTAINER jberrenberg v4.8.3
 
 RUN apk --update --no-cache add tar wget && \
   adduser davmail -D && \
   mkdir /usr/local/davmail && \
-  wget -qO - https://downloads.sourceforge.net/project/davmail/davmail/4.8.1/davmail-linux-x86_64-4.8.1-2507.tgz | tar -C /usr/local/davmail --strip-components=1 -xz && \
+  wget -qO - https://downloads.sourceforge.net/project/davmail/davmail/4.8.3/davmail-linux-x86_64-4.8.3-2554.tgz | tar -C /usr/local/davmail --strip-components=1 -xz && \
   mkdir /var/log/davmail && \
   chown davmail:davmail /var/log/davmail -R && \
   apk del tar wget
