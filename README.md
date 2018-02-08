@@ -2,7 +2,7 @@
 
 [Davmail Gateway](http://davmail.sourceforge.net/) in a Docker container
 
-Davmail Version: 4.8.1
+Davmail Version: 4.8.3
 
 ## Quickstart
 
