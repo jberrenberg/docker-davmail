@@ -1,11 +1,11 @@
 FROM openjdk:8-jre-alpine
 
-MAINTAINER jberrenberg v4.9.0
+MAINTAINER jberrenberg v5.0.0
 
 RUN apk --update --no-cache add wget && \
   adduser davmail -D && \
   mkdir /usr/local/davmail && \
-  wget -qO /tmp/davmail.zip https://downloads.sourceforge.net/project/davmail/davmail/4.9.0/davmail-4.9.0-2652.zip && \
+  wget -qO /tmp/davmail.zip https://downloads.sourceforge.net/project/davmail/davmail/5.0.0/davmail-5.0.0-2801.zip && \
   unzip -q /tmp/davmail.zip -d /usr/local/davmail && \
   rm /tmp/davmail.zip && \
   mkdir /var/log/davmail && \
@@ -23,4 +23,4 @@ WORKDIR       /usr/local/davmail
 
 USER davmail
 
-CMD ["/usr/local/davmail/davmail.sh", "/etc/davmail/davmail.properties"]
+CMD ["/usr/local/davmail/davmail", "/etc/davmail/davmail.properties"]
