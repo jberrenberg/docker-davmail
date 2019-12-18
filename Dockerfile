@@ -1,17 +1,16 @@
 FROM openjdk:8-jre-alpine
 
-MAINTAINER jberrenberg v5.3.1
+MAINTAINER jberrenberg v5.4.0
 
-ADD https://downloads.sourceforge.net/project/davmail/davmail/5.3.1/davmail-5.3.1-3079.zip /tmp/davmail.zip
+ADD https://downloads.sourceforge.net/project/davmail/davmail/5.4.0/davmail-5.4.0-3135.zip /tmp/davmail.zip
 
 RUN adduser davmail -D && \
   mkdir /usr/local/davmail && \
   unzip -q /tmp/davmail.zip -d /usr/local/davmail && \
-  rm /tmp/davmail.zip && \
-  mkdir /var/log/davmail && \
-  chown davmail:davmail /var/log/davmail -R 
+  rm /tmp/davmail.zip
 
 VOLUME        /etc/davmail
+VOLUME        /var/log/davmail
 
 EXPOSE        1080
 EXPOSE        1143
