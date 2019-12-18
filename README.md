@@ -2,7 +2,7 @@
 
 [Davmail Gateway](http://davmail.sourceforge.net/) in a Docker container
 
-Davmail Version: 5.3.1
+Davmail Version: 5.4.0
 
 ## Quickstart
 
@@ -12,7 +12,8 @@ Run the container:
 
 ``` bash
 DAVMAIL_CONF=<absolute/path/to/davmail.properties>
-docker run -v ${DAVMAIL_CONF}:/etc/davmail/davmail.properties jberrenberg/davmail
+DAVMAIL_LOG=<absolute/path/to/davmail.log>
+docker run --name davmail -d -v ${DAVMAIL_CONF}:/etc/davmail -v ${DAVMAIL_LOG}:/var/log/davmail jberrenberg/davmail
 ```
 
 ## Exposed ports
