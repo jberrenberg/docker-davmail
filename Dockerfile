@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM eclipse-temurin:19-jre-alpine
 
 LABEL maintainer="jberrenberg"
 LABEL version="v6.0.0"
